@@ -1,0 +1,23 @@
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+
+app:
+  replay:
+    poll-timeout-ms: 3000
+    max-events-per-replay: 10000
+    rate-limit:
+      capacity: 100
+      refill-tokens: 100
+      refill-period-seconds: 1
+  audit:
+    ttl-hours: 1
+
+management:
+  server:
+    port: 0
